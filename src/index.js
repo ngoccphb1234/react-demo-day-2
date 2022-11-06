@@ -1,8 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-
-import {Info, School, Family, Clock, Increase, ChangeInfo, ConditionRendering, TurnOnOff} from "./components";
+import {
+    Info,
+    School,
+    Family,
+    Clock,
+    Increase,
+    ChangeInfo,
+    ConditionRendering,
+    KeyAndList,
+    TurnOnOff,
+    Thinking,
+    LifeCycles
+}
+    from "./components";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 // function formatName(user) {
@@ -62,24 +74,33 @@ const fullUserInfo = {
 
 
 // setInterval(tick, 1000);
-const element = <div>
+
+const element = <div style={{textAlign: 'center'}}>
+    <h1>--------PROPS ZONE------------------</h1>
     <Family familyInfo={fullUserInfo.familyInfo}/>
     <School schoolInfo={fullUserInfo.schoolInfo}/>
     <Info basicInfo={fullUserInfo.basicInfo}/>
+    <h1>---------------STATE AND LIFECYCLE ZONE-------------------</h1>
     <Clock/>
+    <LifeCycles/>
     <Increase/>
     <ChangeInfo/>
+    <h1>---------HANDLER EVENT ZONE----------</h1>
     <TurnOnOff/>
-    {/*<ConditionRendering/>*/}
-
+    <h1>----------CONDITIONAL RENDERING ZONE------------</h1>
+    <ConditionRendering/>
+    <h1>-------------KEY AND LIST ZONE---------------</h1>
+    <KeyAndList/>
+    <h1>--------THINKING IN REACT--------</h1>
+    <Thinking/>
 </div>
 // function tick() {
 //     root.render(<Clock date={new Date()} />);
 // }
 // setInterval(<Clock date={new Date()}/>, 1000);
-    root.render(
-        element
-    );
+root.render(
+    element
+);
 
 
 // If you want to start measuring performance in your app, pass a function

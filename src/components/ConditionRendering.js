@@ -1,49 +1,31 @@
 import React from 'react';
-// import Button from "./Button";
+import {LogoutButton, LoginButton, Greeting} from "./index";
 
 class ConditionRendering extends React.Component {
     constructor(props) {
         super(props);
-        this.handlerLogout = this.handlerLogout.bind(this)
-        this.handlerLogin = this.handlerLogin.bind(this)
+        this.handleLogoutClick = this.handleLogoutClick.bind(this)
+        this.handleLoginClick = this.handleLoginClick.bind(this)
         this.state = {isLoggedIn: false};
     }
-    HandlerLogin() {
+    handleLoginClick() {
         this.setState({isLoggedIn: true})
     }
-    HandlerLogout() {
+    handleLogoutClick() {
         this.setState({isLoggedIn: false})
     }
-     LoginButton(props) {
-        return (
-            <button onClick={props.onClick}>
-                Login
-            </button>
-        );
-    }
-
-     LogoutButton(props) {
-        return (
-            <button onClick={props.onClick}>
-                Logout
-            </button>
-        );
-    }
     render() {
-        // const isLoggedIn = this.state.isLoggedIn;
-        // console.log(isLoggedIn);
-        // console.log(this.state.handlerLogin)
-        // let button;
-        // if (isLoggedIn){
-        //     button = <Button className={'classLogin'} title={'Login'}/>
-        // }else {
-        //     button = <Button className={'classLogout'} title={'Logout'}/>
-        //
-        // }
+        const isLoggedIn = this.state.isLoggedIn;
+        let button;
+        if (isLoggedIn){
+            button = <LogoutButton onClick={this.handleLogoutClick} />
+        }else {
+            button = <LoginButton onClick={this.handleLoginClick} />
+        }
         return (
             <div>
-                <h1>YOU'RE {this.state.isLoggedIn ? 'LOGGED IN' : 'LOGGED OUT'}</h1>
-                {/*{button}*/}
+               <Greeting isLoggedIn={isLoggedIn}/>
+                {button}
             </div>
         );
     }
